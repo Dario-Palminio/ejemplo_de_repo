@@ -1,0 +1,28 @@
+name: Dummy Deploy to Production
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+   
+    environment:
+      name: production
+      url: https://tu-url-de-produccion.com
+     
+    steps:
+    - name: Dummy Deployment
+      run: |
+        # Este es un paso ficticio que no realiza ninguna acción útil.
+        # Puedes poner cualquier comando aquí, como 'echo', 'sleep', etc.
+        echo "Dummy Deployment step completed successfully!"
+
+    - name: Dummy Deployment Success
+      if: always()
+      run: |
+        # Este paso siempre se ejecutará, incluso si el paso anterior falla.
+        # Aquí puedes colocar un mensaje indicando que el despliegue fue exitoso.
+        echo "Deployment to production was successful!"
